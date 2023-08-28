@@ -1,4 +1,4 @@
-#Learn to make a simple python calculator
+#Learn to make a python calculator
 
 repeat = True
 while repeat == True:
@@ -35,8 +35,8 @@ while repeat == True:
     if choice == "1":
         a,b = input_number()
         print("sum result : "+ str(sum(a, b)))
-        print("Do you want to continue? (y/n)")
-        continuing()
+        check = input("Do you want to continue? (y/n) : ")
+        repeat = continuing(check)
     elif choice == "2":
         a, b = input_number()
         print("subtract result : "+ str(subtract(a, b)))
@@ -45,18 +45,25 @@ while repeat == True:
     elif choice == "3":
         a, b = input_number()
         print("multiply result : "+ str(multiply(a, b)))
-        print("Do you want to continue? (y/n)")
-        continuing()
+        check = input("Do you want to continue? (y/n) : ")
+        repeat = continuing(check)
     elif choice == "4":
         a, b = input_number()   
         print("divide result : "+ str(divide(a, b)))
-        print("Do you want to continue? (y/n)")
-        continuing()
+        check = input("Do you want to continue? (y/n) : ")
+        repeat = continuing(check)
     elif choice == "5":
         exit()
     else:
         print("Invalid choice")
-        print("Do you want to continue? (y/n)")
-        continuing(check)
+        check = input("Do you want to continue? (y/n) : ")
+        repeat = continuing(check)
     
 print("Thank you for using my simple the calculator!")
+    
+
+
+
+
+
+
