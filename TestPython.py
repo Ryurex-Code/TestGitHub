@@ -5,8 +5,12 @@ age = 17
 print("My name is "+ name +", I am " + age + " years old."
 n = 1
 if n >= 2:
-  print ("Halo Ryurex")
+  print ("Hello Ryurex")
 elif n >= 3:
-  print ("Helo F......i")
+  print ("Hello F......i")
 else:
-  print("turu")
+  print("Happy Together")
+
+favFood = ["Meatball", "Sate", "Rendang", "Martabak"]
+for x in favFood:
+  print(x)
