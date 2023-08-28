@@ -11,6 +11,6 @@ elif n >= 3:
 else:
   print("Happy Together")
 
-favFood = ["Meatball", "Sate", "Rendang", "Martabak", Mie/Ramen]
+favFood = ["Meatball", "Sate", "Rendang", "Martabak", "Mie/Ramen"]
 for x in favFood:
   print(x)
