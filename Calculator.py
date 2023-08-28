@@ -1,69 +1,53 @@
-#Learn to make a python calculator
+#learn to make a simple calculator
+def input_numbers():
+    num1 = float(input("Enter first number: "))
+    num2 = float(input("Enter second number: "))
+    return num1, num2
 
-repeat = True
-while repeat == True:
+def add(num1, num2):
+    return num1 + num2
+
+def subtract(num1, num2):
+    return num1 - num2
+
+def multiply(num1, num2):
+    return num1 * num2
+
+def divide(num1, num2):
+    return num1 / num2
+
+def main():
     print("Welcome to the calculator!")
-    print("1. Sum")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Divide")
-    print("5. Exit")
-    choice = input("Enter your choice : ")
-    
-    def input_number():
-        num1 = float(input("Enter first number  : "))
-        num2 = float(input("Enter second number : "))
-        return num1, num2
+    operations = {
+        "1": ("sum", add),
+        "2": ("subtract", subtract),
+        "3": ("multiply", multiply),
+        "4": ("divide", divide)
+    }
 
-    def sum(num1, num2):
-        return num1 + num2
+    while True:
+        print("Select an operation:")
+        for key, value in operations.items():
+            print(f"{key}. {value[0].capitalize()}")
+        print("5. Exit")
 
-    def subtract(num1, num2):
-        return num1 - num2
+        choice = input("Enter your choice: ")
+        if choice == "5":
+            print("Thank you for using the calculator!")
+            break
+        
+        if choice in operations:
+            operation_name, operation_function = operations[choice]
+            num1, num2 = input_numbers()
+            result = operation_function(num1, num2)
+            print(f"{operation_name} result: {result}")
+        else:
+            print("Invalid choice")
+        
+        check = input("Do you want to continue? (y/n): ")
+        if check.lower() != "y":
+            print("Thank you for using the calculator!")
+            break
 
-    def multiply(num1, num2):
-        return num1*num2
-
-    def divide(num1, num2):
-        return num1/num2
-    
-    def continuing(check):
-        if check != "y":
-            repeat = False
-            return repeat
-
-    if choice == "1":
-        a,b = input_number()
-        print("sum result : "+ str(sum(a, b)))
-        check = input("Do you want to continue? (y/n) : ")
-        repeat = continuing(check)
-    elif choice == "2":
-        a, b = input_number()
-        print("subtract result : "+ str(subtract(a, b)))
-        check = input("Do you want to continue? (y/n) : ")
-        repeat = continuing(check)
-    elif choice == "3":
-        a, b = input_number()
-        print("multiply result : "+ str(multiply(a, b)))
-        check = input("Do you want to continue? (y/n) : ")
-        repeat = continuing(check)
-    elif choice == "4":
-        a, b = input_number()   
-        print("divide result : "+ str(divide(a, b)))
-        check = input("Do you want to continue? (y/n) : ")
-        repeat = continuing(check)
-    elif choice == "5":
-        exit()
-    else:
-        print("Invalid choice")
-        check = input("Do you want to continue? (y/n) : ")
-        repeat = continuing(check)
-    
-print("Thank you for using my simple the calculator!")
-    
-
-
-
-
-
-
+if __name__ == "__main__":
+    main()
